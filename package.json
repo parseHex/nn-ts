@@ -1,0 +1,7 @@
+{
+	"name": "nn-ts",
+	"version": "1.0.0",
+	"main": "index.ts",
+	"author": "Thomas Mays <thomas@mindofthomas.com>",
+	"license": "MIT"
+}
