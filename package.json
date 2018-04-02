@@ -1,7 +1,13 @@
 {
 	"name": "nn-ts",
 	"version": "1.0.0",
-	"main": "index.ts",
+	"main": "src/index.ts",
 	"author": "Thomas Mays <thomas@mindofthomas.com>",
-	"license": "MIT"
+	"license": "MIT",
+	"devDependencies": {
+		"ts-loader": "^4.1.0",
+		"typescript": "^2.8.1",
+		"webpack": "^4.4.1",
+		"webpack-cli": "^2.0.13"
+	}
 }
