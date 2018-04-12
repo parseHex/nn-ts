@@ -100,7 +100,7 @@ class NeuralNetwork {
 		// Calculate gradient
 		let gradients = Matrix.map(outputs, this.activation_function.dfunc);
 		gradients.multiply(output_errors);
-		gradients.multiply(this.learning_rate);
+		gradients.scalar(this.learning_rate);
 
 		// Calculate deltas
 		let hidden_T = Matrix.transpose(hidden);
@@ -118,7 +118,7 @@ class NeuralNetwork {
 		// Calculate hidden gradient
 		let hidden_gradient = Matrix.map(hidden, this.activation_function.dfunc);
 		hidden_gradient.multiply(hidden_errors);
-		hidden_gradient.multiply(this.learning_rate);
+		hidden_gradient.scalar(this.learning_rate);
 
 		// Calcuate input->hidden deltas
 		let inputs_T = Matrix.transpose(inputs);

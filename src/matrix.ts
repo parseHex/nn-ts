@@ -52,16 +52,12 @@ class Matrix {
 		return this.map(e => Math.random() * 2 - 1);
 	}
 
-	add(n: number | Matrix) {
-		if (n instanceof Matrix) {
-			if (this.rows !== n.rows || this.cols !== n.cols) {
-				console.log('Columns and Rows of A must match Columns and Rows of B.');
-				return;
-			}
-			return this.map((e, i, j) => e + n.data[i][j]);
-		} else {
-			return this.map(e => e + n);
+	add(n: Matrix) {
+		if (this.rows !== n.rows || this.cols !== n.cols) {
+			console.log('Columns and Rows of A must match Columns and Rows of B.');
+			return;
 		}
+		return this.map((e, i, j) => e + n.data[i][j]);
 	}
 
 	static transpose(matrix: Matrix) {
@@ -87,19 +83,19 @@ class Matrix {
 			});
 	}
 
-	multiply(n: number | Matrix) {
-		if (n instanceof Matrix) {
-			if (this.rows !== n.rows || this.cols !== n.cols) {
-				console.log('Columns and Rows of A must match Columns and Rows of B.');
-				return;
-			}
-
-			// hadamard product
-			return this.map((e, i, j) => e * n.data[i][j]);
-		} else {
-			// Scalar product
-			return this.map(e => e * n);
+	multiply(n: Matrix) {
+		if (this.rows !== n.rows || this.cols !== n.cols) {
+			console.log('Columns and Rows of A must match Columns and Rows of B.');
+			return;
 		}
+
+		// hadamard product
+		return this.map((e, i, j) => e * n.data[i][j]);
+	}
+
+	scalar(n: number) {
+		// Scalar product
+		return this.map(e => e * n);
 	}
 
 	map(func: MapFunc) {
