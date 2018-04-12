@@ -10,7 +10,15 @@ class Matrix {
 		this.rows = rows;
 		this.cols = cols;
 
-		this.data = Array(this.rows).fill(null).map(() => Array(this.cols).fill(0));
+		this.data = [];
+		for (let i = 0; i < this.rows; i++) {
+			this.data[i] = [];
+			for (let k = 0; k < this.cols; k++) {
+				this.data[i][k] = 0;
+			}
+		}
+
+		// this.data = Array(this.rows).fill(null).map(() => Array(this.cols).fill(0));
 	}
 
 	copy() {
