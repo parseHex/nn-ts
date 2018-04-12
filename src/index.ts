@@ -76,9 +76,9 @@ class NeuralNetwork {
 		this.activation_function = func;
 	}
 
-	train(input_array: Uint16Array, target_array: Uint8Array) {
+	train(input_array: number[], target_array: number[]) {
 		// Generating the Hidden Outputs
-		let inputs = Matrix.fromArray(<any>input_array);
+		let inputs = Matrix.fromArray(input_array);
 		let hidden = Matrix.multiply(this.weights_ih, inputs);
 		hidden.add(this.bias_h);
 		// activation function!
@@ -90,7 +90,7 @@ class NeuralNetwork {
 		outputs.map(this.activation_function.func);
 
 		// Convert array to matrix object
-		let targets = Matrix.fromArray(<any>target_array);
+		let targets = Matrix.fromArray(target_array);
 
 		// Calculate the error
 		// ERROR = TARGETS - OUTPUTS
